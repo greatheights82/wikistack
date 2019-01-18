@@ -11,7 +11,8 @@ router.get('/', (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   // console.log('we hit route 2')
-  res.send('got to POST /wiki/');
+  console.log(res.json(req.body))
+  // res.send('got to POST /wiki/');
 });
 
 router.get('/add', (req, res, next) => {

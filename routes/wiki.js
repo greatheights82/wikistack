@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { main } = require('../views');
 const { addPage } = require('../views');
+const { Page } = require('../models');
 
 // router.get('../', mainPage);
 
@@ -10,9 +11,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  // console.log('we hit route 2')
-  console.log(res.json(req.body))
-  // res.send('got to POST /wiki/');
+  console.log('this is ok');
+  res.json(req.body);
 });
 
 router.get('/add', (req, res, next) => {

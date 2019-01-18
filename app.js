@@ -6,7 +6,7 @@ const { db } = require('./models');
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 
-console.log({ db });
+// console.log({ db });
 
 db.authenticate().then(() => {
   console.log('connected to the database');
@@ -14,6 +14,14 @@ db.authenticate().then(() => {
 
 const PORT = 3000;
 
-app.listen(PORT, () => {
-  console.log(`App listening in port ${PORT}`);
-});
+const models = require('./models')
+
+const init = async () => {
+  await models.db.sync() // {force: true}
+
+  app.listen(PORT, () => {
+    console.log(`App listening in port ${PORT}`);
+  });
+}
+
+init()

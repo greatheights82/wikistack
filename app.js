@@ -11,6 +11,9 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 app.use('/wiki', wikiRouter);
 app.use('/user', userRouter);
+app.get('/', (req, res, next) => {
+  res.redirect('/views/main');
+});
 
 // console.log({ db });
 

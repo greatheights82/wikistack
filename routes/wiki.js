@@ -1,11 +1,12 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-const mainPage = require('../views/main')
-const { addPage } = require('../views')
+const { main } = require('../views');
+const { addPage } = require('../views');
 
-router.get('/', async (req, res, next) => {
-  // console.log('we hit route 1')
-  res.redirect(mainPage);
+// router.get('../', mainPage);
+
+router.get('/', (req, res, next) => {
+  res.send(main());
 });
 
 router.post('/', async (req, res, next) => {
@@ -18,4 +19,4 @@ router.get('/add', (req, res, next) => {
   res.send(addPage());
 });
 
-module.exports = router
+module.exports = router;

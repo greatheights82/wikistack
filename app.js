@@ -9,8 +9,8 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
-app.use('wiki', wikiRouter);
-app.use('user', userRouter);
+app.use('/wiki', wikiRouter);
+app.use('/user', userRouter);
 
 // console.log({ db });
 
